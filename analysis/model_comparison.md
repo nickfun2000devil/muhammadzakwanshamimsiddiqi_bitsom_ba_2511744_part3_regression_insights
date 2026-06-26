@@ -1,0 +1,7 @@
+# Model Comparison Analysis
+
+| Model Name | Variables Used | R-squared | Significant Variables | Business Usefulness | Limitations |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Model 1: Marketing Focus** | **DV:** `monthly_sales`<br>**IV:** `marketing_spend` | 0.1672 (16.72%) | `marketing_spend` ($p < 0.05$) | **Low.** Demonstrates a loose return on investment, but is far too weak on its own to guide long-term strategy. | Ignores critical store variables like customer traffic channels and localized geographical trends. |
+| **Model 2: Traffic Focus** | **DV:** `monthly_sales`<br>**IV:** `footfall` | 0.7363 (73.63%) | `footfall` ($p < 0.05$) | **Moderate.** Clearly highlights customer volume as a foundational driver for sales generation. | While explanatory power is strong, it provides zero guidance on marketing returns or geographic positioning. |
+| **Model 3: Holistic Multiple Regression** | **DV:** `monthly_sales`<br>**IV:** `marketing_spend`, `footfall`, `avg_discount_pct`, `region_North`, `region_South`, `region_West` | 0.7926 (79.26%) | `footfall`, `marketing_spend`, `region_South`, `region_West` ($p < 0.05$) | **High.** Isolates independent variable impacts simultaneously, allowing leadership to balance budgets and target specific locations. | Does not capture non-linear market changes, macroeconomic shifts, or localized inventory variables.
