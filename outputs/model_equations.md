@@ -18,7 +18,7 @@ Simple Linear Regression Models & Business Interpretation
 * **Independent Variable ($X$):** `marketing_spend`
 
 ### 1. Regression Equation
-$$\text{monthly\_sales} = 560,777.35 + 2.1296 \times (\text{marketing\_spend})$$
+$$\text{Sales} = 560777.35 + 2.1296 \times \text{Marketing}$$
 
 ### 2. R-squared
 * **Value:** 0.1672 (16.72%)
@@ -38,12 +38,14 @@ $$\text{monthly\_sales} = 560,777.35 + 2.1296 \times (\text{marketing\_spend})$$
 ### 6. Variable Usefulness Evaluation
 * **Status:** **Highly Useful.** The p-value sits exponentially below the standard $\alpha = 0.05$ significance threshold, indicating that marketing spend is a statistically reliable and positive top-line driver.
 
+---
+
 ## Model 2: Footfall Traffic Performance
 * **Dependent Variable ($Y$):** `monthly_sales`
 * **Independent Variable ($X$):** `footfall`
 
 ### 1. Regression Equation
-$$\text{monthly\_sales} = 446,410.58 + 35.6780 \times (\text{footfall})$$
+$$\text{Sales} = 446410.58 + 35.6780 \times \text{Footfall}$$
 
 ### 2. R-squared
 * **Value:** 0.7363 (73.63%)
@@ -67,15 +69,24 @@ $$\text{monthly\_sales} = 446,410.58 + 35.6780 \times (\text{footfall})$$
 
 * **Dependent Variable ($Y$):** `monthly_sales`
 * **Independent Variables ($X$):** `marketing_spend`, `footfall`, `avg_discount_pct`, `region_North`, `region_South`, `region_West`
-* **Mathematical Equation:**
-  $$\text{monthly\_sales} = 391327.13 + 1.1428(M) + 33.7593(F) - 72697.03(D) + 13427.78(R_N) + 21268.10(R_S) + 19854.55(R_W)$$
 
-### Coefficient Interpretations:
-1. **Intercept (391,327.13):** The predicted average baseline monthly sales for a store located in the reference region (**East**) with zero marketing layout, no footfall traffic, and no discounting mechanics.
+### 1. Mathematical Equation
+$$\text{Sales} = 391327.13 + 1.1428(M) + 33.7593(F) - 72697.03(D) + 13427.78(R_N) + 21268.10(R_S) + 19854.55(R_W)$$
+
+*Where predictor keys map to dataset fields:*
+* $M$ = `marketing_spend`
+* $F$ = `footfall`
+* $D$ = `avg_discount_pct`
+* $R_N$ = `region_North`
+* $R_S$ = `region_South`
+* $R_W$ = `region_West`
+
+### 2. Coefficient Interpretations
+1. **Intercept (391,327.13):** The predicted average baseline monthly sales for a store located in the reference region (**East**) with zero marketing layout, no footfall traffic, and no active discounting mechanics.
 2. **Marketing Spend ($1.1428$):** Holding all other factors constant, every additional $1 spent on marketing yields $1.14 in sales.
-3. **Footfall ($33.7593$):** The strongest absolute driver. Each additional customer visiting the store increases monthly sales by $33.76.
-4. **Average Discount Pct ($-72,697.03$):** Shows a negative trajectory but is statistically insignificant ($p > 0.05$), meaning aggressive discounting may erode top-line margins without reliably driving sales volume.
-5. **Regional Shifts (South: $21,268.10$ | West: $19,854.55$):** Holding operational inputs equal, stores in the South and West statistically outperform the baseline **East** branch by roughly $21.3k and $19.9k respectively.
+3. **Footfall ($33.7593$):** Each additional customer visiting the store increases monthly sales by $33.76, making it the strongest absolute driver.
+4. **Average Discount Pct ($-72,697.03$):** Shows an aggressive discounting structure that can erode top-line margins, but it is statistically weak ($p = 0.0696 > 0.05$).
+5. **Regional Shifts ($R_N, R_S, R_W$):** Measures baseline premiums over the **East** reference region. Regions South (+$21.2k) and West (+$19.9k) are statistically significant ($p < 0.05$), while Region North is weak ($p = 0.0788$).
 
 * **Final Model Selection:** The **Multiple Linear Regression Model** is selected as the definitive operational framework.
 * **Selection Rationale:** Moving from simple regression to a multiple regression framework expanded the model's explanatory power (R-Squared) from 16.72% (Marketing) and 73.63% (Footfall) up to **79.26%**, minimizing the standard error to 47,706.49.
