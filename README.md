@@ -45,10 +45,23 @@ The strategic performance indicators across all tested mathematical variations t
 The **Multiple Linear Regression Model** was selected as the definitive corporate forecasting tool because it expands the model's explanatory power (**R-Squared**) to **79.26%** and dramatically minimizes the baseline standard error down to 47,706.49.
 
 ### Mathematical Equations:
-* **Simple Model 1:** $\text{monthly\_sales} = 560,777.35 + 2.1296 \times (\text{marketing\_spend})$
-* **Simple Model 2:** $\text{monthly\_sales} = 446,410.58 + 35.6780 \times (\text{footfall})$
-* **Selected Final Model:**
-  $$\text{monthly\_sales} = 391,327.13 + 1.1428(\text{marketing\_spend}) + 33.7593(\text{footfall}) - 72,697.03(\text{avg\_discount\_pct}) + 13,427.78(\text{region\_North}) + 21,268.10(\text{region\_South}) + 19,854.55(\text{region\_West})$$
+
+* **Simple Model 1 (Marketing Impact Analysis):**
+  $$\text{Sales} = 560777.35 + 2.1296 \times \text{Marketing}$$
+
+* **Simple Model 2 (Footfall Impact Analysis):**
+  $$\text{Sales} = 446410.58 + 35.6780 \times \text{Footfall}$$
+
+* **Selected Final Model (Holistic Operational Multiple Regression):**
+  $$\text{Sales} = 391327.13 + 1.1428(M) + 33.7593(F) - 72697.03(D) + 13427.78(R_N) + 21268.10(R_S) + 19854.55(R_W)$$
+
+  *Where operational predictor keys map to your dataset fields as:*
+  * $M$ = `marketing_spend`
+  * $F$ = `footfall`
+  * $D$ = `avg_discount_pct`
+  * $R_N$ = `region_North` (Dummy Variable)
+  * $R_S$ = `region_South` (Dummy Variable)
+  * $R_W$ = `region_West` (Dummy Variable)
 
 ## 8. Business Recommendation
 
